@@ -3,103 +3,246 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maeann Bakery</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
 
-  <!-- NAV -->
-  <header>
-    <nav>
-      <a href="#hero">🥐 Maeann Bakery</a>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Menu</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <title>Maeann Bakery</title>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    /* C2: COLOR PALETTE */
+    @theme {
+      --color-cream: #FFF8F0;
+      --color-bakery: #8B5E3C;
+      --color-pink: #F4B8C1;
+      --color-chocolate: #432818;
+    }
+
+    /* A5: REUSABLE COMPONENTS */
+    @layer components {
+      .bakery-btn {
+        @apply inline-block bg-bakery text-white px-6 py-3
+               rounded-full font-semibold hover:bg-chocolate
+               transition duration-300 cursor-pointer text-center;
+      }
+
+      .section-title {
+        @apply text-3xl md:text-4xl font-bold
+               text-chocolate dark:text-pink mb-6;
+      }
+
+      .product-card {
+        @apply bg-white dark:bg-stone-800 rounded-2xl
+               p-5 shadow-md hover:shadow-xl transition duration-300;
+      }
+
+      .nav-link {
+        @apply hover:text-bakery dark:hover:text-pink
+               transition duration-300;
+      }
+
+      .form-input {
+        @apply w-full p-3 rounded-lg border border-stone-300
+               bg-white text-chocolate focus:outline-none
+               focus:ring-2 focus:ring-bakery;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-chocolate dark:bg-stone-950 dark:text-white transition-colors duration-300">
+
+  <!-- SCROLL PROGRESS BAR (animated in Push 4) -->
+  <div id="progressBar"
+       role="progressbar"
+       aria-label="Page scroll progress"
+       aria-valuemin="0"
+       aria-valuemax="100"
+       aria-valuenow="0"
+       class="fixed top-0 left-0 z-50 h-1 w-full origin-left scale-x-0 bg-bakery">
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-stone-900/95 shadow-sm">
+    <nav aria-label="Main navigation"
+         class="max-w-6xl mx-auto px-6 py-5 flex flex-wrap justify-between items-center gap-4">
+
+      <a href="#hero" class="text-xl font-bold text-chocolate dark:text-pink">
+        🥐 Maeann Bakery
+      </a>
+
+      <ul class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:gap-x-8 font-medium text-sm md:text-base">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Menu</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+
+      <button id="toggledark"
+              type="button"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+              class="bg-bakery text-white px-4 py-2 rounded-full font-semibold cursor-pointer hover:bg-chocolate transition">
+        Toggle
+      </button>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero">
-      <img id="heroIcon" src="assets/maeann-bakery-logo.png" alt="Maeann Bakery logo" />
-      <h1 id="heroTitle">Maeann Bakery</h1>
-      <p id="heroText">Freshly baked made with love every day.</p>
-      <div id="heroButtons">
-        <a href="#work">Explore Our Menu</a>
-        <button id="replayBtn" type="button">Replay Intro</button>
+
+    <!-- HERO SECTION -->
+    <section id="hero"
+             class="min-h-[85vh] flex flex-col justify-center items-center text-center px-6 py-20
+                    bg-gradient-to-b from-pink/40 to-cream dark:from-stone-800 dark:to-stone-950">
+
+      <img id="heroIcon"
+           src="assets/maeann-bakery-logo.png"
+           alt="Maeann Bakery logo"
+           class="w-64 md:w-80 h-auto object-contain rounded-2xl shadow-xl mb-8" />
+
+      <h1 id="heroTitle"
+          class="text-5xl md:text-7xl font-bold text-chocolate dark:text-pink mb-5">
+        Maeann Bakery
+      </h1>
+
+      <p id="heroText" class="text-lg md:text-xl max-w-xl mb-8">
+        Freshly baked made with love every day.
+      </p>
+
+      <div id="heroButtons" class="flex flex-wrap justify-center gap-4">
+        <a href="#work" class="bakery-btn">Explore Our Menu</a>
+
+        <button id="replayBtn"
+                type="button"
+                class="border-2 border-bakery dark:border-pink px-6 py-3 rounded-full
+                       hover:bg-pink hover:text-chocolate transition cursor-pointer">
+          Replay Intro
+        </button>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-      <h2>Our Little Bakery ♡</h2>
-      <p>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="reveal max-w-5xl mx-auto px-6 py-24 text-center">
+      <h2 class="section-title">Our Little Bakery ♡</h2>
+      <p class="text-lg leading-relaxed max-w-2xl mx-auto">
         Welcome to Maeann Bakery! We are a small bakery that creates
         delicious homemade bread, cakes, and pastries. Every treat is
         freshly baked with love to make your day a little sweeter.
       </p>
     </section>
 
-    <!-- MENU -->
-    <section id="work" class="reveal">
-      <h2>Our Sweet Treats</h2>
-      <p>Made fresh, just for you!</p>
-      <div>
-        <article>
-          <h3>Yema Cake</h3>
-          <p>Freshly baked Yema Cake.</p>
-          <span>₱120</span>
-        </article>
-        <article>
-          <h3>ChocoMoist</h3>
-          <p>Freshly baked Chocowy ChocoMoist.</p>
-          <span>₱130</span>
-        </article>
-        <article>
-          <h3>Ube Cake</h3>
-          <p>Freshly baked Ube Cake.</p>
-          <span>₱120</span>
-        </article>
+    <!-- MENU SECTION -->
+    <section id="work" class="reveal bg-pink/20 dark:bg-stone-900 py-24 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="section-title">Our Sweet Treats</h2>
+        <p class="mb-12">Made fresh, just for you!</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-2">Yema Cake</h3>
+            <p class="mb-4">Freshly baked Yema Cake.</p>
+            <span class="text-chocolate dark:text-pink font-bold text-xl">₱120</span>
+          </article>
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-2">ChocoMoist</h3>
+            <p class="mb-4">Freshly baked Chocowy ChocoMoist.</p>
+            <span class="text-chocolate dark:text-pink font-bold text-xl">₱130</span>
+          </article>
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-2">Ube Cake</h3>
+            <p class="mb-4">Freshly baked Ube Cake.</p>
+            <span class="text-chocolate dark:text-pink font-bold text-xl">₱120</span>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="reveal">
-      <h2>Our Bakery Services ♡</h2>
-      <div>
-        <article><h3>Custom Cakes</h3><p>Personalized cakes for celebrations.</p></article>
-        <article><h3>Fresh Banana Cake</h3><p>Delicious bread baked daily.</p></article>
-        <article><h3>Bulk Orders</h3><p>Sweet treats for parties and meetings.</p></article>
-        <article><h3>Special Occasions</h3><p>Dessert packages for memorable events.</p></article>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="reveal py-24 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="section-title">Our Bakery Services ♡</h2>
+        <p class="mb-12 text-lg">Making every celebration a little sweeter!</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-3">Custom Cakes</h3>
+            <p class="mb-6">Personalized cakes for birthdays, anniversaries and celebrations.</p>
+            <a href="#contact" class="bakery-btn">Inquire Now</a>
+          </article>
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-3">Fresh Banana Cake</h3>
+            <p class="mb-6">Delicious bread, freshly baked every day.</p>
+            <a href="#work" class="bakery-btn">View Menu</a>
+          </article>
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-3">Bulk Orders</h3>
+            <p class="mb-6">Sweet treats for meetings, gatherings and parties.</p>
+            <a href="#contact" class="bakery-btn">Order Now</a>
+          </article>
+
+          <article class="product-card">
+            <h3 class="text-xl font-bold mb-3">Special Occasions</h3>
+            <p class="mb-6">Beautiful dessert packages for memorable celebrations.</p>
+            <a href="#contact" class="bakery-btn">Book Now</a>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-      <h2>Get in Touch 💌</h2>
-      <form id="contactForm">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required />
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="reveal bg-pink/20 dark:bg-stone-900 py-24 px-6">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="section-title text-center">Get in Touch 💌</h2>
+        <p class="text-center mb-8">
+          Have a question or a special order? Send us a message!
+        </p>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required />
+        <form id="contactForm" class="flex flex-col gap-5">
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+          <div>
+            <label for="name" class="block mb-2">Name</label>
+            <input id="name" name="name" type="text" required class="form-input" />
+          </div>
 
-        <button type="submit">Send Message</button>
-        <p id="formStatus" role="status" aria-live="polite"></p>
-      </form>
+          <div>
+            <label for="email" class="block mb-2">Email</label>
+            <input id="email" name="email" type="email" required class="form-input" />
+          </div>
+
+          <div>
+            <label for="message" class="block mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
+          </div>
+
+          <button type="submit" class="bakery-btn">Send Message</button>
+          <p id="formStatus" role="status" aria-live="polite" class="text-center"></p>
+
+        </form>
+      </div>
     </section>
+
   </main>
 
-  <footer>
+  <!-- FOOTER -->
+  <footer class="bg-bakery text-white text-center py-8">
     <p>© 2026 Maeann Bakery. Made with Love</p>
+    <p class="text-sm mt-2">Freshly baked happiness every day.</p>
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>

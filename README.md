@@ -1,43 +1,17 @@
+# Maeann Bakery
 
-# Project Name
-
-**Live site:** https://github.com/c20245279garcia-ops/MaeannBakery.git
+Live site: https://github.com/c20245279garcia-ops/MaeannBakery
 
 ## About
-
-One or two sentences: what is this site, and who is it for?
-
-## Design System
-
-### Palette (60-30-10)
-
-| Role | Share | Color | Used for |
-|---|---|---|---|
-| Dominant | 60% | `#______` | Page background |
-| Secondary | 30% | `#______` | Cards, sections, navigation |
-| Accent | 10% | `#______` | Buttons, links, highlights |
-
-### Visual style
-
-**Style chosen:** (for example: minimalism, glassmorphism, neo-brutalism, bento grid)
-
-**Why I chose it:** one sentence.
-
-### Contrast check
-
-Body text color vs. background color: `#______` on `#______`
-Contrast ratio: ______ : 1 (needs to be at least 4.5 : 1)
-Tool used: ______
+A small bakery website showcasing homemade bread, cakes, and pastries.
 
 ## Features
-
-- [ ] Mobile-first responsive layout
-- [ ] Dark mode toggle
-- [ ] Page-load intro animation (GSAP timeline)
-- [ ] Scroll reveals on every section below the hero (ScrollTrigger)
-- [ ] Scroll progress bar (scrub)
-- [ ] Reduced-motion support
+- Mobile-first responsive layout (Tailwind CSS)
+- Dark mode toggle
+- Page-load intro animation (GSAP timeline) — coming in Push 3
+- Scroll reveals on every section below the hero (ScrollTrigger) — coming in Push 4
+- Scroll progress bar (scrub) — coming in Push 4
+- Reduced-motion support — coming in Push 4
 
 ## Built With
-
 HTML, Tailwind CSS, JavaScript, GSAP, ScrollTrigger

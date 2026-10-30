@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maeann Bakery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav>
+      <a href="#hero">🥐 Maeann Bakery</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Menu</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <img id="heroIcon" src="assets/maeann-bakery-logo.png" alt="Maeann Bakery logo" />
+      <h1 id="heroTitle">Maeann Bakery</h1>
+      <p id="heroText">Freshly baked made with love every day.</p>
+      <div id="heroButtons">
+        <a href="#work">Explore Our Menu</a>
+        <button id="replayBtn" type="button">Replay Intro</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <h2>Our Little Bakery ♡</h2>
+      <p>
+        Welcome to Maeann Bakery! We are a small bakery that creates
+        delicious homemade bread, cakes, and pastries. Every treat is
+        freshly baked with love to make your day a little sweeter.
+      </p>
+    </section>
+
+    <!-- MENU -->
+    <section id="work" class="reveal">
+      <h2>Our Sweet Treats</h2>
+      <p>Made fresh, just for you!</p>
+      <div>
+        <article>
+          <h3>Yema Cake</h3>
+          <p>Freshly baked Yema Cake.</p>
+          <span>₱120</span>
+        </article>
+        <article>
+          <h3>ChocoMoist</h3>
+          <p>Freshly baked Chocowy ChocoMoist.</p>
+          <span>₱130</span>
+        </article>
+        <article>
+          <h3>Ube Cake</h3>
+          <p>Freshly baked Ube Cake.</p>
+          <span>₱120</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="reveal">
+      <h2>Our Bakery Services ♡</h2>
+      <div>
+        <article><h3>Custom Cakes</h3><p>Personalized cakes for celebrations.</p></article>
+        <article><h3>Fresh Banana Cake</h3><p>Delicious bread baked daily.</p></article>
+        <article><h3>Bulk Orders</h3><p>Sweet treats for parties and meetings.</p></article>
+        <article><h3>Special Occasions</h3><p>Dessert packages for memorable events.</p></article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <h2>Get in Touch 💌</h2>
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+        <p id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Maeann Bakery. Made with Love</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

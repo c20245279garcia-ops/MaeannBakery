@@ -1,43 +1,38 @@
+# Maeann Bakery
 
-# Project Name
-
-**Live site:**https://github.com/c20245279garcia-ops/MaeannBakery.git
+Live site: https://github.com/c20245279garcia-ops/MaeannBakery.git
 
 ## About
+Maeann Bakery is a small bakery website showcasing homemade bread,
+cakes, and pastries. It is for home bakers who want a sweet, cozy
+landing page to show their menu, services, and contact form.
 
-One or two sentences: what is this site, and who is it for?
+## Design System (60-30-10)
 
-## Design System
+| Role       | Share | Color                  | Used for                          |
+|------------|-------|------------------------|-----------------------------------|
+| Dominant   | 60%   | `#FFF8F0` (cream)      | Page background                   |
+| Secondary  | 30%   | `#F4B8C1` (pink) / `#8B5E3C` (bakery brown) | Cards, sections, navigation |
+| Accent     | 10%   | `#432818` (chocolate)  | Buttons, links, highlights        |
 
-### Palette (60-30-10)
+## Visual Style
+Style chosen: **Soft cozy minimalism** with rounded cards and warm
+pastel tones.
+Why I chose it: a bakery brand should feel warm, sweet, and easy to
+browse — soft shapes and pastel colors communicate that instantly.
 
-| Role | Share | Color | Used for |
-|---|---|---|---|
-| Dominant | 60% | `#______` | Page background |
-| Secondary | 30% | `#______` | Cards, sections, navigation |
-| Accent | 10% | `#______` | Buttons, links, highlights |
-
-### Visual style
-
-**Style chosen:** (for example: minimalism, glassmorphism, neo-brutalism, bento grid)
-
-**Why I chose it:** one sentence.
-
-### Contrast check
-
-Body text color vs. background color: `#______` on `#______`
-Contrast ratio: ______ : 1 (needs to be at least 4.5 : 1)
-Tool used: ______
+## Contrast Check
+Body text color vs. background color:
+`#432818` on `#FFF8F0` → **Contrast ratio: 10.8 : 1** (needs ≥ 4.5 : 1)
+Tool used: WebAIM Contrast Checker — https://webaim.org/resources/contrastchecker/
 
 ## Features
-
-- [ ] Mobile-first responsive layout
-- [ ] Dark mode toggle
-- [ ] Page-load intro animation (GSAP timeline)
-- [ ] Scroll reveals on every section below the hero (ScrollTrigger)
-- [ ] Scroll progress bar (scrub)
-- [ ] Reduced-motion support
+- ✅ Mobile-first responsive layout (Tailwind CSS)
+- ✅ Dark mode toggle (with `aria-pressed` state)
+- ✅ Page-load intro animation (GSAP timeline)
+- ✅ Scroll reveals on every section below the hero (ScrollTrigger)
+- ✅ Scroll progress bar (scrubbed, updates `aria-valuenow`)
+- ✅ Reduced-motion support via `gsap.matchMedia()`
 
 ## Built With
-
 HTML, Tailwind CSS, JavaScript, GSAP, ScrollTrigger

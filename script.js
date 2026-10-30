@@ -1,6 +1,7 @@
 // =====================================================
 // Maeann Bakery — script.js
-// Push 3: Dark mode (B1) + GSAP intro timeline (D1, D2, D3)
+// Push 4 (FINAL): dark mode + intro + scroll reveals +
+// progress bar + reduced-motion support
 // =====================================================
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,27 +55,67 @@ intro
       ease: "power2.out",
     },
     "-=0.4"
-  )
-  .fromTo(
-    "#heroButtons > *",
-    {
-      y: 15,
-      opacity: 0,
-      scale: 0.8,
-      immediateRender: false,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      stagger: 0.12,
-      duration: 0.5,
-      ease: "power2.out",
-    },
-    "-=0.3"
   );
 
 // ---- D3: CLICK INTERACTION — Replay Intro ----
 document.querySelector("#replayBtn").addEventListener("click", () => {
   intro.restart();
 });
+
+// ---- E3: REDUCED MOTION WRAPPER ----
+// All scroll effects run inside gsap.matchMedia() so visitors who
+// prefer reduced motion still see every section (no stuck opacity).
+const mm = gsap.matchMedia();
+
+mm.add(
+  {
+    motionOK: "(prefers-reduced-motion: no-preference)",
+    reduce: "(prefers-reduced-motion: reduce)",
+  },
+  (ctx) => {
+    const { motionOK } = ctx.conditions;
+
+    if (motionOK) {
+      // ---- E1: SCROLL REVEALS ----
+      // Each .reveal element gets its OWN ScrollTrigger with an
+      // explicit start and toggleActions.
+      gsap.utils.toArray(".reveal").forEach((el) => {
+        gsap.from(el, {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+
+      // ---- E2: SCROLL-LINKED PROGRESS BAR ----
+      // Scrubbed so it grows with page scroll and updates aria-valuenow.
+      gsap.to("#progressBar", {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            document
+              .querySelector("#progressBar")
+              .setAttribute(
+                "aria-valuenow",
+                Math.round(self.progress * 100)
+              );
+          },
+        },
+      });
+    } else {
+      // Reduced motion: reveal everything immediately, no animation.
+      gsap.set(".reveal", { opacity: 1, y: 0 });
+    }
+  }
+);
